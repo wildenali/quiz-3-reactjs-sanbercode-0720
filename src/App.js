@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import About from './components/About';
+import Contact from './components/Contact';
 
 class App extends Component {
   render() {
     return (
       <div>
         <About />
-        <h1>Cek</h1>
+        <Contact />
       </div>
     );
   }
