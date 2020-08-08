@@ -3,9 +3,6 @@ import React from 'react'
 const Contact = () => {
   return (
     <>
-      <header>
-        <title>contact</title>
-      </header>
       <body style={{ padding: "10px", border: "1px solid #ccc" }}>
         <h1 style={{ textAlign: "center" }}>Hubungi Kami</h1>
           <strong>Kantor :</strong>

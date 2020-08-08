@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../assets/img/logo.png'
+// import logo from '../assets/img/logo.png'
 
 const Index = () => {
   return (
@@ -9,16 +9,6 @@ const Index = () => {
         <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet"/>
       </head>
       <body>
-        <header>
-          <img id="logo" src={ logo } width="200px" />
-          <nav>
-            <ul>
-              <li><a href="index.html">Home </a> </li>
-              <li><a href="about.html">About </a> </li>
-              <li><a href="contact.html">Contact </a> </li>
-            </ul>
-          </nav>
-        </header>
         <section >
           <h1>Featured Posts</h1>
           <div id="article-list">
