@@ -26,8 +26,8 @@ class Home extends Component {
                   return(
                     <div>
                       <a href=""><h3>{el.title}</h3></a>
-                      <li style={{ fontWeight: "bold", listStyle: "none" }}>Ratting: {el.rating}</li>
-                      <li style={{ fontWeight: "bold", listStyle: "none" }}>Durasi: {el.duration/60} jam</li>
+                      <li style={{ fontWeight: "bold", listStyle: "none" }}>Rating: {el.rating}</li>
+                      <li style={{ fontWeight: "bold", listStyle: "none" }}>Durasi: {el.duration} Menit</li>
                       <li style={{ fontWeight: "bold", listStyle: "none" }}>Tahun: {el.year}</li>
                       <li style={{ fontWeight: "bold", listStyle: "none" }}>Genre: {el.genre}</li>
                       <p>
