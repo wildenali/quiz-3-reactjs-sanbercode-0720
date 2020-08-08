@@ -2,6 +2,16 @@ import React, { Component } from 'react'
 // import logo from '../assets/img/logo.png'
 
 class Home extends Component {
+  constructor(props){
+    super(props)
+    this.state={
+      dataFilmTerbaik: [
+        { title: "Supermen", rating: 8, duration: 120, genre: "komedi", year: 2021, description: "lakilaki yang berkekuatan super power sekali dan sangan jago" },
+        { title: "Superwomen", rating: 9, duration: 90, genre: "crime", year: 2022, description: "perempuan yang berkekuatan super power jago sekali dan sangan elegant" }
+      ]
+    }
+  }
+
   render(){
     return (
       <>
@@ -11,18 +21,22 @@ class Home extends Component {
         <body>
           <section >
             <h1>Daftar Film Film Terbaik</h1>
-            <div id="article-list">
-              <div>
-                <a href=""><h3>Lorem Post 1</h3></a>
-                <li style={{ fontWeight: "bold", listStyle: "none" }}>Ratting: 9.0</li>
-                <li style={{ fontWeight: "bold", listStyle: "none" }}>Durasi: 2 jam</li>
-                <li style={{ fontWeight: "bold", listStyle: "none" }}>Tahun: 2019</li>
-                <li style={{ fontWeight: "bold", listStyle: "none" }}>Genre: fantasy, action</li>
-                <p>
-                  <b>Deskripsi:</b> Lorem Ipsum Dolor Sit Amet, mea te verear signiferumque, per illum labores ne. Blandit omnesque scripserit pri ex, et pri dicant eirmod deserunt. Aeque perpetua ea nec. Sit erant patrioque delicatissimi ut. Et sea quem sint, nam in minim voluptatibus. Etiam placerat eam in.
-                </p>
-              </div>
-            </div>
+              {
+                this.state.dataFilmTerbaik.map((el, index) => {
+                  return(
+                    <div>
+                      <a href=""><h3>{el.title}</h3></a>
+                      <li style={{ fontWeight: "bold", listStyle: "none" }}>Ratting: {el.rating}</li>
+                      <li style={{ fontWeight: "bold", listStyle: "none" }}>Durasi: {el.duration/60} jam</li>
+                      <li style={{ fontWeight: "bold", listStyle: "none" }}>Tahun: {el.year}</li>
+                      <li style={{ fontWeight: "bold", listStyle: "none" }}>Genre: {el.genre}</li>
+                      <p>
+                        <b>Deskripsi:</b> {el.description}
+                      </p>
+                    </div>
+                  )
+                })
+              }
           </section>
           <footer>
             <h5>copyright &copy; 2020 by Sanbercode</h5>
