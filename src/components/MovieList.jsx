@@ -35,7 +35,7 @@ const MovieList = () => {
                     <td>{item.genre}</td>
                     <td style={{ textAlign: "center" }}>{item.rating}</td>
                     <td>
-                      <textarea style={{ float: "right" }} type="text">
+                      <textarea disabled style={{ float: "right" }} type="text">
                         {item.description}
                       </textarea>
                     </td>
