@@ -1,10 +1,76 @@
 import React, {useState, useEffect} from "react"
 
 const MovieList = () => {
-  const [daftarMovie, setDaftarMovie] =  useState([
+  const [daftarMovie, setDaftarMovie] = useState([
     { title: "Supermen", rating: 8, duration: 120, genre: "komedi", year: 2021, description: "lakilaki yang berkekuatan super power sekali dan sangan jago" },
     { title: "Superwomen", rating: 9, duration: 90, genre: "crime", year: 2022, description: "perempuan yang berkekuatan super power jago sekali dan sangan elegant" }
   ])
+  const [input, setInput] = useState({ title: "", rating: 0, duration: 0, genre: "", year: 0, description: "" })
+
+  const handleChange = (event) =>{
+    let typeOfInput = event.target.name
+
+    switch (typeOfInput){
+      case "title":
+      {
+        setInput({...input, title: event.target.value});
+        break
+      }
+      case "rating":
+      {
+        setInput({...input, rating: event.target.value});
+        break
+      }
+      case "duration":
+      {
+        setInput({...input, duration: event.target.value});
+        break
+      }
+      case "genre":
+      {
+        setInput({...input, genre: event.target.value});
+        break
+      }
+      case "year":
+      {
+        setInput({...input, year: event.target.value});
+        break
+      }
+      case "description":
+      {
+        setInput({...input, description: event.target.value});
+        break
+      }
+    default:
+      {break;}
+    }
+  }
+
+  const handleSubmit = (event) => {
+    // menahan submit
+    event.preventDefault()
+
+    let title = input.title
+    let rating = input.rating.toString()
+    let duration = input.duration.toString()
+    let genre = input.genre
+    let year = input.year.toString()
+    let description = input.description
+
+    setDaftarMovie(
+      [...daftarMovie, 
+        {
+          title: title,
+          rating: rating,
+          duration: duration,
+          genre: genre,
+          year: year,
+          description: description,
+        }
+      ]
+    )
+    setInput({ title: "", rating: 0, duration: 0, genre: "", year: 0, description: "" })
+  }
 
   return (
     <>
@@ -54,39 +120,38 @@ const MovieList = () => {
       </table>
       {/* Form */}
       <h1>Form Daftar Movie</h1>
-
       <div style={{width: "50%", margin: "0 auto", display: "block"}}>
         <div style={{border: "1px solid #aaa", padding: "20px"}}>
-          <form>
-          {/* <form onSubmit={handleSubmit}> */}
+          {/* <form> */}
+          <form onSubmit={handleSubmit}>
             <label style={{float: "left"}}>Title:</label>
-            <input style={{float: "right"}} type="text" name="title"/>
-            {/* <input style={{float: "right"}} type="text" name="name" value={input.name} onChange={handleChange}/> */}
+            {/* <input style={{float: "right"}} type="text" name="title"/> */}
+            <input style={{float: "right"}} type="text" name="title" value={input.title} onChange={handleChange}/>
             <br/>
             <br/>
             <label style={{float: "left"}}>Year:</label>
-            <input style={{float: "right"}} type="number" name="year" />
-            {/* <input style={{float: "right"}} type="text" name="price" value={input.price} onChange={handleChange}/> */}
+            {/* <input style={{float: "right"}} type="number" name="year" /> */}
+            <input style={{float: "right"}} type="number" name="year" value={input.year} onChange={handleChange}/>
             <br/>
             <br/>
             <label style={{float: "left"}}>Duration (in minutes):</label>
-            <input style={{float: "right"}} type="number" name="duration" />
-            {/* <input style={{float: "right"}} type="number" name="weight" value={input.weight} onChange={handleChange}/> */}
+            {/* <input style={{float: "right"}} type="number" name="duration" /> */}
+            <input style={{float: "right"}} type="number" name="duration" value={input.duration} onChange={handleChange}/>
             <br/>
             <br/>
             <label style={{float: "left"}}>Genre:</label>
-            <input style={{float: "right"}} type="text" name="genre" />
-            {/* <input style={{float: "right"}} type="number" name="weight" value={input.weight} onChange={handleChange}/> */}
+            {/* <input style={{float: "right"}} type="text" name="genre" /> */}
+            <input style={{float: "right"}} type="text" name="genre" value={input.genre} onChange={handleChange}/>
             <br/>
             <br/>
             <label style={{float: "left"}}>Rating:</label>
-            <input style={{float: "right"}} type="number" name="rating" />
-            {/* <input style={{float: "right"}} type="number" name="weight" value={input.weight} onChange={handleChange}/> */}
+            {/* <input style={{float: "right"}} type="number" name="rating" /> */}
+            <input style={{float: "right"}} type="number" name="rating" value={input.rating} onChange={handleChange}/>
             <br/>
             <br/>
             <label style={{float: "left"}}>Description:</label>
-            <textarea style={{float: "right"}} type="text" name="description" />
-            {/* <input style={{float: "right"}} type="number" name="weight" value={input.weight} onChange={handleChange}/> */}
+            {/* <textarea style={{float: "right"}} type="text" name="description" /> */}
+            <textarea style={{float: "right"}} type="text" name="description" value={input.description} onChange={handleChange} />
             <br/>
             <br/>
             <br/>
