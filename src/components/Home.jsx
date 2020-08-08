@@ -5,55 +5,22 @@ const Home = () => {
   return (
     <>
       <head>
-        <link href="public/css/style.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet"/>
       </head>
       <body>
         <section >
-          <h1>Featured Posts</h1>
+          <h1>Daftar Film Film Terbaik</h1>
           <div id="article-list">
             <div>
               <a href=""><h3>Lorem Post 1</h3></a>
+              <li style={{ fontWeight: "bold", listStyle: "none" }}>Ratting: 9.0</li>
+              <li style={{ fontWeight: "bold", listStyle: "none" }}>Durasi: 2 jam</li>
+              <li style={{ fontWeight: "bold", listStyle: "none" }}>Tahun: 2019</li>
+              <li style={{ fontWeight: "bold", listStyle: "none" }}>Genre: fantasy, action</li>
               <p>
-                Lorem Ipsum Dolor Sit Amet, mea te verear signiferumque, per illum labores ne. Blandit omnesque scripserit pri ex, et pri dicant eirmod deserunt. Aeque perpetua ea nec. Sit erant patrioque delicatissimi ut. Et sea quem sint, nam in minim voluptatibus. Etiam placerat eam in.
+                <b>Deskripsi:</b> Lorem Ipsum Dolor Sit Amet, mea te verear signiferumque, per illum labores ne. Blandit omnesque scripserit pri ex, et pri dicant eirmod deserunt. Aeque perpetua ea nec. Sit erant patrioque delicatissimi ut. Et sea quem sint, nam in minim voluptatibus. Etiam placerat eam in.
               </p>
             </div>
-            <div>
-              <a href=""><h3>Lorem Post 2</h3></a>
-              <p>
-                Lorem Ipsum Dolor Sit Amet, mea te verear signiferumque, per illum labores ne. Blandit omnesque scripserit pri ex, et pri dicant eirmod deserunt. Aeque perpetua ea nec. Sit erant patrioque delicatissimi ut. Et sea quem sint, nam in minim voluptatibus. Etiam placerat eam in.
-              </p>
-            </div>
-            <div>
-              <a href=""><h3>Lorem Post 3</h3></a>
-              <p>
-                Lorem Ipsum Dolor Sit Amet, mea te verear signiferumque, per illum labores ne. Blandit omnesque scripserit pri ex, et pri dicant eirmod deserunt. Aeque perpetua ea nec. Sit erant patrioque delicatissimi ut. Et sea quem sint, nam in minim voluptatibus. Etiam placerat eam in.
-              </p>
-            </div>
-            <div>
-              <a href=""><h3>Lorem Post 4</h3></a>
-              <p>
-                Lorem Ipsum Dolor Sit Amet, mea te verear signiferumque, per illum labores ne. Blandit omnesque scripserit pri ex, et pri dicant eirmod deserunt. Aeque perpetua ea nec. Sit erant patrioque delicatissimi ut. Et sea quem sint, nam in minim voluptatibus. Etiam placerat eam in.
-              </p>
-            </div>
-            <div>
-              <a href=""><h3>Lorem Post 5</h3></a>
-              <p>
-                Lorem Ipsum Dolor Sit Amet, mea te verear signiferumque, per illum labores ne. Blandit omnesque scripserit pri ex, et pri dicant eirmod deserunt. Aeque perpetua ea nec. Sit erant patrioque delicatissimi ut. Et sea quem sint, nam in minim voluptatibus. Etiam placerat eam in.
-              </p>
-            </div>
-            <div>
-                <a href=""><h3>Lorem Post 5</h3></a>
-                <p>
-                  Lorem Ipsum Dolor Sit Amet, mea te verear signiferumque, per illum labores ne. Blandit omnesque scripserit pri ex, et pri dicant eirmod deserunt. Aeque perpetua ea nec. Sit erant patrioque delicatissimi ut. Et sea quem sint, nam in minim voluptatibus. Etiam placerat eam in.
-                </p>
-              </div>
-              <div>
-                <a href=""><h3>Lorem Post 5</h3></a>
-                <p>
-                  Lorem Ipsum Dolor Sit Amet, mea te verear signiferumque, per illum labores ne. Blandit omnesque scripserit pri ex, et pri dicant eirmod deserunt. Aeque perpetua ea nec. Sit erant patrioque delicatissimi ut. Et sea quem sint, nam in minim voluptatibus. Etiam placerat eam in.
-                </p>
-              </div>
           </div>
         </section>
         <footer>
