@@ -1,4 +1,5 @@
 import React from 'react'
+import logo from '../assets/img/logo.png'
 
 const Index = () => {
   return (
@@ -9,7 +10,7 @@ const Index = () => {
       </head>
       <body>
         <header>
-          <img id="logo" src="public/img/logo.png" width="200px" />
+          <img id="logo" src={ logo } width="200px" />
           <nav>
             <ul>
               <li><a href="index.html">Home </a> </li>
