@@ -1,7 +1,7 @@
 import React from 'react'
 // import logo from '../assets/img/logo.png'
 
-const Index = () => {
+const Home = () => {
   return (
     <>
       <head>
@@ -64,4 +64,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default Home

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Contact = () => {
+const MovieList = () => {
   return (
     <>
       <body style={{ padding: "10px", border: "1px solid #ccc" }}>
@@ -53,4 +53,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default MovieList

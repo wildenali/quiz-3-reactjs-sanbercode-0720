@@ -2,8 +2,8 @@ import React from 'react'
 import { Switch, Link, Route } from 'react-router-dom'
 import logo from '../assets/img/logo.png'
 import About from './About'
-import Index from './Index'
-import Contact from './Contact'
+import Home from './Home'
+import MovieList from './MovieList'
 
 const NavBar = () => {
   return (
@@ -17,14 +17,14 @@ const NavBar = () => {
           <ul>
             <li><a><Link to="/">Home</Link></a></li>
             <li><a><Link to="/about">About</Link></a></li>
-            <li><a><Link to="/contact">Contact</Link></a></li>
+            <li><a><Link to="/movie-list">Movie List Editor</Link></a></li>
           </ul>
         </nav>
       </header>
       <Switch>
-        <Route exact path="/"><Index /></Route>
+        <Route exact path="/"><Home /></Route>
         <Route path="/about"><About /></Route>
-        <Route path="/contact"><Contact /></Route>
+        <Route path="/movie-list"><MovieList /></Route>
       </Switch>
     </>
   )
