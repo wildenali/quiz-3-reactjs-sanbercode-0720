@@ -1,14 +1,16 @@
 import React, {useState, useEffect} from "react"
 
 const MovieList = () => {
-  const [daftarMovie, setDaftarMovie] =  useState(null)
+  const [daftarMovie, setDaftarMovie] =  useState([
+    { title: "Supermen", rating: 8, duration: 120, genre: "komedi", year: 2021, description: "lakilaki yang berkekuatan super power sekali dan sangan jago" },
+    { title: "Superwomen", rating: 9, duration: 90, genre: "crime", year: 2022, description: "perempuan yang berkekuatan super power jago sekali dan sangan elegant" }
+  ])
 
   return (
     <>
       <h1>Daftar Movie</h1>
       <table>
         <thead>
-        {/* { title: "Supermen", rating: 8, duration: 120, genre: "komedi", year: 2021, description: "lakilaki yang berkekuatan super power sekali dan sangan jago" }, */}
           <tr>
             <th>No</th>
             <th>Title</th>
@@ -21,23 +23,33 @@ const MovieList = () => {
           </tr>
         </thead>
         <tbody>
-            {/* {
+            {
               daftarMovie !== null && daftarMovie.map((item, index)=>{
-                return(                    
+                return(
+                  // { title: "Supermen", rating: 8, duration: 120, genre: "komedi", year: 2021, description: "lakilaki yang berkekuatan super power sekali dan sangan jago" }
                   <tr key={index}>
                     <td>{index+1}</td>
-                    <td>{item.name}</td>
-                    <td>{item.price}</td>
-                    <td>{item.weight/1000} Kg</td>
+                    <td>{item.title}</td>
+                    <td>{item.year}</td>
+                    <td>{item.duration} Min</td>
+                    <td>{item.genre}</td>
+                    <td style={{ textAlign: "center" }}>{item.rating}</td>
                     <td>
-                      <button onClick={handleEdit} value={item.id}>Edit</button>
+                      <textarea style={{ float: "right" }} type="text">
+                        {item.description}
+                      </textarea>
+                    </td>
+                    <td>
+                      <button value={item.id}>Edit</button>
+                      {/* <button onClick={handleEdit} value={item.id}>Edit</button> */}
                       &nbsp;
-                      <button onClick={handleDelete} value={item.id}>Delete</button>
+                      <button value={item.id}>Delete</button>
+                      {/* <button onClick={handleDelete} value={item.id}>Delete</button> */}
                     </td>
                   </tr>
                 )
               })
-            } */}
+            }
         </tbody>
       </table>
       {/* Form */}
