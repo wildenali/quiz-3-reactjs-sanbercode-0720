@@ -8,6 +8,8 @@ const MovieList = () => {
   // ])
   const [daftarMovie, setDaftarMovie] = useState(null)
   const [input, setInput] = useState({ title: "", rating: 0, duration: 0, genre: "", year: 0, description: "" })
+  const [statusForm, setStatusForm] = useState("create")
+  const [selectedId, setSelectedId]  =  useState(0)
 
   useEffect( () => {
     if(daftarMovie === null){
@@ -19,6 +21,33 @@ const MovieList = () => {
         })
     }
   },[daftarMovie])
+
+  const handleEdit = (event) => {
+    // let idBuah = parseInt(event.target.value)
+    let idMovie = parseInt(event.target.value)
+    console.log(idMovie)
+
+    let dataMovie = daftarMovie.find(x => x.id === idMovie)
+    console.log(dataMovie)
+
+    setInput({title: dataMovie.title, rating: dataMovie.rating, genre: dataMovie.genre, year: dataMovie.year, description: dataMovie.description})
+    setSelectedId(idMovie)
+    setStatusForm("edit")
+  }
+
+  const handleDelete = (event) => {
+    let idMovie = parseInt(event.target.value)
+
+    let newDaftarMovie = daftarMovie.filter(el => el.id != idMovie)
+
+    axios.delete(`http://backendexample.sanbercloud.com/api/movies/${idMovie}`)
+    .then(res => {
+      console.log(res)
+    })
+          
+    setDaftarMovie([...newDaftarMovie])
+    
+  }
 
   const handleChange = (event) =>{
     let typeOfInput = event.target.name
@@ -70,13 +99,34 @@ const MovieList = () => {
     let year = input.year.toString()
     let description = input.description
 
-    axios.post(`http://backendexample.sanbercloud.com/api/movies`, {title, rating, duration, genre, year, description})
-      .then(res => {
-        setDaftarMovie([...daftarMovie, {id: res.data.id, title: title, rating: rating, duration: duration, genre: genre, year: year, description: description}])
-      })
+    if (title.replace(/\s/g,'') !== "" && rating.replace(/\s/g,'') !== "" && duration .replace(/\s/g,'') !== "" && genre.replace(/\s/g,'') !== "" && year.replace(/\s/g,'') !== "" && description.replace(/\s/g,'') !== "") {
+      if (statusForm === "create") {
+        axios.post(`http://backendexample.sanbercloud.com/api/movies`, {title, rating, duration, genre, year, description})
+          .then(res => {
+            setDaftarMovie([...daftarMovie, {id: res.data.id, title: title, rating: rating, duration: duration, genre: genre, year: year, description: description}])
+          })
+      } else if (statusForm === "edit") {
+        axios.put(`http://backendexample.sanbercloud.com/api/movies/${selectedId}`, {title: input.title, rating: input.rating, duration: input.duration, genre: input.genre, year: input.year, description: input.description})
+          .then(res => {
+            console.log(res)
+              // let dataMovie = daftarMovie.find(el => el.id === selectedId)
+              // dataMovie.title = title
+              // dataMovie.rating = rating
+              // dataMovie.duration = duration
+              // dataMovie.genre = genre
+              // dataMovie.year = year
+              // dataMovie.description = description
+              // setDaftarMovie([...daftarMovie])
+            }
+          )
+      }
+      
+      setStatusForm("create")
+      setInput({ title: "", rating: 0, duration: 0, genre: "", year: 0, description: "" })
+    }
 
-    setInput({ title: "", rating: 0, duration: 0, genre: "", year: 0, description: "" })
   }
+
 
   return (
     <>
@@ -98,7 +148,6 @@ const MovieList = () => {
             {
               daftarMovie !== null && daftarMovie.map((item, index)=>{
                 return(
-                  // { title: "Supermen", rating: 8, duration: 120, genre: "komedi", year: 2021, description: "lakilaki yang berkekuatan super power sekali dan sangan jago" }
                   <tr key={index}>
                     <td>{index+1}</td>
                     <td>{item.title}</td>
@@ -112,11 +161,11 @@ const MovieList = () => {
                       </textarea>
                     </td>
                     <td>
-                      <button value={item.id}>Edit</button>
-                      {/* <button onClick={handleEdit} value={item.id}>Edit</button> */}
+                      {/* <button value={item.id}>Edit</button> */}
+                      <button onClick={handleEdit} value={item.id}>Edit</button>
                       &nbsp;
-                      <button value={item.id}>Delete</button>
-                      {/* <button onClick={handleDelete} value={item.id}>Delete</button> */}
+                      {/* <button value={item.id}>Delete</button> */}
+                      <button onClick={handleDelete} value={item.id}>Delete</button>
                     </td>
                   </tr>
                 )
