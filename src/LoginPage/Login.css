@@ -1,0 +1,28 @@
+.input-login {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.button-login {
+    background-color: blue;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    width: 100%;
+}
+
+.button-login:hover {
+    font-size: medium;
+    color: greenyellow;
+}
+
+.container {
+    margin: auto;
+    width: 30%;
+    margin-top: 90px;
+}
