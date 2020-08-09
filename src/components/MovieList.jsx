@@ -1,11 +1,24 @@
 import React, {useState, useEffect} from "react"
+import axios from 'axios'
 
 const MovieList = () => {
-  const [daftarMovie, setDaftarMovie] = useState([
-    { title: "Supermen", rating: 8, duration: 120, genre: "komedi", year: 2021, description: "lakilaki yang berkekuatan super power sekali dan sangan jago" },
-    { title: "Superwomen", rating: 9, duration: 90, genre: "crime", year: 2022, description: "perempuan yang berkekuatan super power jago sekali dan sangan elegant" }
-  ])
+  // const [daftarMovie, setDaftarMovie] = useState([
+  //   { title: "Supermen", rating: 8, duration: 120, genre: "komedi", year: 2021, description: "lakilaki yang berkekuatan super power sekali dan sangan jago" },
+  //   { title: "Superwomen", rating: 9, duration: 90, genre: "crime", year: 2022, description: "perempuan yang berkekuatan super power jago sekali dan sangan elegant" }
+  // ])
+  const [daftarMovie, setDaftarMovie] = useState(null)
   const [input, setInput] = useState({ title: "", rating: 0, duration: 0, genre: "", year: 0, description: "" })
+
+  useEffect( () => {
+    if(daftarMovie === null){
+      axios.get(`http://backendexample.sanbercloud.com/api/movies`)
+        .then(res => {
+          console.log(res)
+          console.log(res.data)
+          setDaftarMovie(res.data.map(el=>{return {id: el.id, title: el.title, rating:el.rating, duration:el.duration, genre:el.genre, year:el.year, description: el.description}}))
+        })
+    }
+  },[daftarMovie])
 
   const handleChange = (event) =>{
     let typeOfInput = event.target.name
