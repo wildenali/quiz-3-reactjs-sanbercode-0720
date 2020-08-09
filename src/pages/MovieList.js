@@ -109,14 +109,14 @@ const MovieList = () => {
         axios.put(`http://backendexample.sanbercloud.com/api/movies/${selectedId}`, {title: input.title, rating: input.rating, duration: input.duration, genre: input.genre, year: input.year, description: input.description})
           .then(res => {
             console.log(res)
-              // let dataMovie = daftarMovie.find(el => el.id === selectedId)
-              // dataMovie.title = title
-              // dataMovie.rating = rating
-              // dataMovie.duration = duration
-              // dataMovie.genre = genre
-              // dataMovie.year = year
-              // dataMovie.description = description
-              // setDaftarMovie([...daftarMovie])
+              let dataMovie = daftarMovie.find(el => el.id === selectedId)
+              dataMovie.title = title
+              dataMovie.rating = rating
+              dataMovie.duration = duration
+              dataMovie.genre = genre
+              dataMovie.year = year
+              dataMovie.description = description
+              setDaftarMovie([...daftarMovie])
             }
           )
       }
