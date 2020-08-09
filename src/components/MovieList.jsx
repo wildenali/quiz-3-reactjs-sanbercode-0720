@@ -70,18 +70,11 @@ const MovieList = () => {
     let year = input.year.toString()
     let description = input.description
 
-    setDaftarMovie(
-      [...daftarMovie, 
-        {
-          title: title,
-          rating: rating,
-          duration: duration,
-          genre: genre,
-          year: year,
-          description: description,
-        }
-      ]
-    )
+    axios.post(`http://backendexample.sanbercloud.com/api/movies`, {title, rating, duration, genre, year, description})
+      .then(res => {
+        setDaftarMovie([...daftarMovie, {id: res.data.id, title: title, rating: rating, duration: duration, genre: genre, year: year, description: description}])
+      })
+
     setInput({ title: "", rating: 0, duration: 0, genre: "", year: 0, description: "" })
   }
 
