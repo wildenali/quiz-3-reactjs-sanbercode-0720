@@ -7,7 +7,7 @@ const MovieList = () => {
   //   { title: "Superwomen", rating: 9, duration: 90, genre: "crime", year: 2022, description: "perempuan yang berkekuatan super power jago sekali dan sangan elegant" }
   // ])
   const [daftarMovie, setDaftarMovie] = useState(null)
-  const [input, setInput] = useState({ title: "", rating: 0, duration: 0, genre: "", year: 0, description: "" })
+  const [input, setInput] = useState({ title: "", rating: 1, duration: 0, genre: "", year: 0, description: "" })
   const [statusForm, setStatusForm] = useState("create")
   const [selectedId, setSelectedId]  =  useState(0)
 
@@ -199,9 +199,9 @@ const MovieList = () => {
             <input style={{float: "right"}} type="text" name="genre" value={input.genre} onChange={handleChange}/>
             <br/>
             <br/>
-            <label style={{float: "left"}}>Rating:</label>
+            <label style={{float: "left"}}>Rating (1 sampai 10):</label>
             {/* <input style={{float: "right"}} type="number" name="rating" /> */}
-            <input style={{float: "right"}} type="number" name="rating" value={input.rating} onChange={handleChange}/>
+            <input min="1" max="10" style={{float: "right"}} type="number" name="rating" value={input.rating} onChange={handleChange} />
             <br/>
             <br/>
             <label style={{float: "left"}}>Description:</label>
