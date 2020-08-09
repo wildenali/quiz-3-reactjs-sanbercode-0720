@@ -1,5 +1,4 @@
-import React, { Component, useState, useEffect } from 'react'
-// import React, { useState, useEffect  } from 'react'
+import React, { Component } from 'react'
 import axios from 'axios'
 // import logo from '../assets/img/logo.png'
 
