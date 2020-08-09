@@ -1,9 +1,9 @@
 import React from 'react'
 import { Switch, Link, Route } from 'react-router-dom'
 import logo from '../assets/img/logo.png'
-import About from './About'
-import Home from './Home'
-import MovieList from './MovieList'
+import About from '../pages/About'
+import Home from '../pages/Home'
+import MovieList from '../pages/MovieList'
 
 const NavBar = () => {
   return (
@@ -18,6 +18,7 @@ const NavBar = () => {
             <li><a><Link to="/">Home</Link></a></li>
             <li><a><Link to="/about">About</Link></a></li>
             <li><a><Link to="/movie-list">Movie List Editor</Link></a></li>
+            <li><a><Link to="/login">Login</Link></a></li>
           </ul>
         </nav>
       </header>
